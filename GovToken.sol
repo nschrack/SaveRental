@@ -9,7 +9,7 @@ contract GovToken{
     string public symbol = "SRT";
     address payable public owner;
     uint public totalSupply;
-    uint256 constant tokenPrice = 100; // token price, unit wei
+    uint256 constant tokenPrice = 100;
     address public contractAddress;
 
     mapping(address => uint) balances;
