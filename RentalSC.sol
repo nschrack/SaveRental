@@ -21,13 +21,13 @@ contract RentalSC {
     
     // rental state 
     enum State {
-        Created, // 0  Rental has benn createdd
+        Created, // 0  Rental has benn created
         Signed, // 1  Rental has been signed
         DepositPaid, // 2 Deposit and fee has been payed by the tenant
         Confirmed, // 3 The tenant has confirmed the rental
-        Canceled, // 4 The tenant has canceld the rental
+        Canceled, // 4 The tenant has canceled the rental
         Terminated, // 5 The tenant/landlord has terminated the rental
-        Offer, // 6 The landlord has made an offer for the deposit (somehting is damaged)
+        Offer, // 6 The landlord has made an offer for the deposit
         DisputeOpened, // 7 The tenant has opened a dispute
         DisputePaid, // 8 The landlord has paid the dispute fee
         Agreement, // 9 The landlord and tenant have agreed on the deposit 
@@ -310,7 +310,6 @@ contract RentalSC {
         while (dispute[_id].meds.length != MEDIATOR_NO) {
             uint256 rand = getRand(mediators.length);
             if (valueExists(dispute[_id].meds, mediators[rand].ID) == false && 
-            
                     // check that mediator has enoguh tokens to qualify for mediation
                     govTokenSC.balanceOf(mediators[rand].ID) >= MEDIATOR_MIN_TOKEN){
                         
@@ -449,7 +448,7 @@ contract RentalSC {
         reward_amount = rental[_id].rewardAmount;
     }
 
-    // retrieve an actor's information
+    // retrieve an actor information
     function getActorInfo(address _addr) public view returns
     (
         Role _role,
